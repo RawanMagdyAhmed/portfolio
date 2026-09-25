@@ -21,7 +21,7 @@ Import **https://github.com/RawanMagdyAhmed/portfolio** in Vercel.
 
 - Framework Preset: **Next.js**
 - Root Directory: leave empty
-- Output Directory: **leave empty** (do not set `public` or `out`)
+- Output Directory: **`out`** (this project uses `output: "export"`)
 - Install / Build: default (`npm install` / `npm run build`)
 
 Then Deploy. If the site 404s while Ready, Redeploy with **Use existing Build Cache** turned off.
