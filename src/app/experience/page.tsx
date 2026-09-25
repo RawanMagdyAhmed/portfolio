@@ -8,34 +8,39 @@ export const metadata: Metadata = {
 export default function ExperiencePage() {
   return (
     <div className="shell py-14 md:py-16">
-      <div className="rise">
+      <header className="rise grid gap-5 border-b border-line pb-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] md:items-start md:gap-12">
         <h1 className="font-serif text-5xl tracking-tight md:text-6xl">Experience</h1>
-        <p className="mt-5 max-w-3xl text-lg text-ink-soft">
+        <p className="text-lg leading-relaxed text-ink-soft md:pt-2 md:text-xl">
           I grow by shipping interface work — first internships, now a full-time
           frontend role on a healthcare platform.
         </p>
-      </div>
+      </header>
 
-      <ol className="mt-12 space-y-14">
+      <ol className="mt-12">
         {experience.map((job) => (
-          <li key={job.company} className="reveal">
-            <p className="text-sm text-ink-soft">{job.dates}</p>
-            <h2 className="mt-2 font-serif text-3xl">{job.company}</h2>
-            <p className="text-base text-ink-soft">
-              {job.role} · {job.location}
-            </p>
-            <p className="mt-4 max-w-3xl text-base leading-relaxed text-ink-soft">
-              {job.intro}
-            </p>
-            <div className="mt-6 grid gap-5 md:grid-cols-3">
-              {job.areas.map((area) => (
-                <div key={area.label} className="border-l-2 border-accent pl-4">
-                  <h3 className="text-base font-medium">{area.label}</h3>
-                  <p className="mt-1 text-base leading-relaxed text-ink-soft">
-                    {area.text}
-                  </p>
-                </div>
-              ))}
+          <li
+            key={job.company}
+            className="reveal grid gap-4 border-b border-line py-10 md:grid-cols-[11rem_minmax(0,1fr)] md:gap-10"
+          >
+            <p className="text-sm text-ink-soft md:pt-2">{job.dates}</p>
+            <div>
+              <h2 className="font-serif text-3xl md:text-4xl">{job.company}</h2>
+              <p className="mt-1 text-base text-ink-soft">
+                {job.role} · {job.location}
+              </p>
+              <p className="mt-4 max-w-3xl text-base leading-relaxed text-ink-soft">
+                {job.intro}
+              </p>
+              <div className="mt-7 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {job.areas.map((area) => (
+                  <div key={area.label} className="border-l-2 border-accent pl-4">
+                    <h3 className="text-base font-medium">{area.label}</h3>
+                    <p className="mt-1 text-base leading-relaxed text-ink-soft">
+                      {area.text}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           </li>
         ))}

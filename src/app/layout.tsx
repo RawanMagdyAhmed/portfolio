@@ -29,10 +29,18 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: `${site.name} — ${site.role}`,
-    template: `%s — ${site.shortName}`,
+    default: `${site.shortName} — ${site.role}`,
+    template: `${site.shortName} — %s`,
   },
   description: site.summary,
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.png", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-icon.png" }],
+  },
 };
 
 const themeScript = `

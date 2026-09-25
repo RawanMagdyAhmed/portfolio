@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MediaPlaceholder } from "@/components/Placeholder";
+import { PhoneGallery } from "@/components/PhoneGallery";
+import { WebGallery } from "@/components/WebGallery";
 import { projects } from "@/data/site";
 
 export function generateStaticParams() {
@@ -30,6 +32,9 @@ export default async function ProjectPage({
 
   const previous = index > 0 ? projects[index - 1] : null;
   const next = index < projects.length - 1 ? projects[index + 1] : null;
+  const hasLinks = Boolean(project.liveUrl || project.githubUrl || project.apkUrl);
+  const frame = project.screens?.[0]?.frame ?? "phone";
+  const useWideGallery = frame === "web" || frame === "wide";
 
   return (
     <article className="shell py-14 md:py-16">
@@ -46,10 +51,54 @@ export default async function ProjectPage({
         <p className="mt-6 max-w-3xl text-xl leading-relaxed text-ink-soft">
           {project.summary}
         </p>
+        {hasLinks ? (
+          <div className="mt-7 flex flex-wrap gap-3">
+            {project.liveUrl ? (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center bg-ink px-5 py-2.5 text-base text-paper hover:bg-accent"
+              >
+                Live demo
+              </a>
+            ) : null}
+            {project.githubUrl ? (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center border border-line px-5 py-2.5 text-base hover:border-accent"
+              >
+                GitHub
+              </a>
+            ) : null}
+            {project.apkUrl ? (
+              <a
+                href={project.apkUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center border border-line px-5 py-2.5 text-base hover:border-accent"
+              >
+                Download Android APK
+              </a>
+            ) : null}
+          </div>
+        ) : null}
       </div>
 
-      <div className="reveal mt-10">
-        <MediaPlaceholder className="min-h-[280px]" />
+      <div className="mt-10">
+        {project.screens?.length ? (
+          useWideGallery ? (
+            <WebGallery screens={project.screens} />
+          ) : (
+            <PhoneGallery screens={project.screens} />
+          )
+        ) : (
+          <div className="reveal">
+            <MediaPlaceholder className="min-h-[280px]" />
+          </div>
+        )}
       </div>
 
       <div className="mt-14 grid gap-10 md:grid-cols-3">

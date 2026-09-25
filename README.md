@@ -2,7 +2,7 @@
 
 Frontend engineer portfolio. Next.js, TypeScript, Tailwind.
 
-**Repo:** https://github.com/marawan10/rmagdy
+**Repo:** https://github.com/RawanMagdyAhmed/portfolio
 
 ## Run locally
 

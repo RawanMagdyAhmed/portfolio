@@ -137,9 +137,52 @@ body {
   }
 }
 
+/* Match Cashnote device mockups so shadows follow the phone, not a square box */
+.phone-shot {
+  overflow: hidden;
+  border-radius: 8.5% / 4.1%;
+  background: transparent;
+  line-height: 0;
+}
+
+/* Wide browser frame for website case galleries (Quizzer) */
+.web-shot {
+  border-radius: 0.35rem;
+  box-shadow: 0 14px 36px rgb(var(--shadow) / 0.12);
+  line-height: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .web-shot:hover {
+    transform: translateY(-1px);
+  }
+}
+
+@keyframes gallery-fade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .rise,
   .reveal {
     animation: none;
+  }
+
+  @keyframes gallery-fade {
+    from {
+      opacity: 1;
+      transform: none;
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
   }
 }

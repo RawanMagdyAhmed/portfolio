@@ -43,9 +43,9 @@ function ProjectRow({
 export default function WorkPage() {
   return (
     <div className="shell py-14 md:py-16">
-      <div className="rise">
+      <div className="rise grid gap-5 border-b border-line pb-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] md:items-start md:gap-12">
         <h1 className="font-serif text-5xl tracking-tight md:text-6xl">Work</h1>
-        <p className="mt-5 max-w-3xl text-lg text-ink-soft">
+        <p className="text-lg leading-relaxed text-ink-soft md:pt-2">
           Frontend first: web and mobile products I designed and implemented.
           Other pieces from the CV follow, so the React work stays easy to find.
         </p>
