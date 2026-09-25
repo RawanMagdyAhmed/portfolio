@@ -15,13 +15,13 @@ Open http://localhost:3000
 
 ## Deploy (Vercel)
 
-Import this GitHub repo in Vercel.
+Import **https://github.com/RawanMagdyAhmed/portfolio** in Vercel.
 
-**Required settings (or the site 404s even when the deploy is Ready):**
+**Required settings:**
 
-- Framework Preset: **Next.js** (not Other)
+- Framework Preset: **Next.js**
+- Root Directory: leave empty
 - Output Directory: **leave empty** (do not set `public` or `out`)
 - Install / Build: default (`npm install` / `npm run build`)
-- Root Directory: **empty** (repo root)
 
-Then Redeploy with **Use existing Build Cache** turned off.
+Then Deploy. If the site 404s while Ready, Redeploy with **Use existing Build Cache** turned off.
