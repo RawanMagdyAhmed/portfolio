@@ -17,12 +17,14 @@ Open http://localhost:3000
 
 Import **https://github.com/RawanMagdyAhmed/portfolio** in Vercel.
 
-This site is a **static export** (`out/`). In Project Settings → Build & Development Settings:
+This matches the config that worked on the previous repo (`output: "export"` → `out/`).
 
-- Framework Preset: **Other** (not Next.js)
-- Build Command: `next build` (or leave default from `vercel.json`)
-- Output Directory: **`out`**
+**In Vercel → Project Settings → Build & Development Settings, set exactly:**
+
+- Framework Preset: **Other** (important — not Next.js; Next.js looks for `routes-manifest.json` inside `out` and fails)
+- Build Command: `npm run build`
+- Output Directory: `out`
 - Install Command: `npm install`
-- Root Directory: leave empty
+- Root Directory: empty
 
-Then Redeploy with **Use existing Build Cache** turned off.
+Save, then Redeploy with **Use existing Build Cache** turned off.
